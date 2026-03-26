@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Signal - A Novel Series</title>
-    <script src="https://js.stripe.com/v3/"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
@@ -249,7 +248,7 @@
                 <div class="book-info">
                     <p>The discovery that changes everything. A signal from the void carries secrets of a civilization that transcended death itself.</p>
                     <span class="book-status status-writing">In Progress</span>
-                    <button id="buy-signal" class="btn" style="margin-top: 1rem; width: 100%;">Pre-order - $9.99</button>
+                    <a href="https://buy.stripe.com/4gMaEQ1qj7Ugc8V59t7Re00" class="btn" style="margin-top: 1rem; width: 100%; display: block; text-align: center; text-decoration: none;">Pre-order - $9.99</a>
                 </div>
             </div>
             <div class="book-card">
@@ -288,18 +287,6 @@
         <p>A <a href="https://butts-studios.com">Butts Studios</a> Production</p>
     </footer>
 
-    <script>
-        const stripe = Stripe('pk_live_51TBisj3Fr8U6X9hIo8bGhNNxcDogDxBI2x1Gpu23CzgBbiIkDOUaEAD3JjZ5DYutPBq4Cn0UjxxNQ6elDR6sMnOK00KqcwOnog');
-        
-        document.getElementById('buy-signal')?.addEventListener('click', async () => {
-            const { error } = await stripe.redirectToCheckout({
-                lineItems: [{ price: 'price_signal_book1', quantity: 1 }],
-                mode: 'payment',
-                successUrl: window.location.origin + '/success.html',
-                cancelUrl: window.location.origin + '/cancel.html',
-            });
-            if (error) console.error(error);
-        });
-    </script>
+    <!-- Payment via Stripe Payment Link -->
 </body>
 </html>
